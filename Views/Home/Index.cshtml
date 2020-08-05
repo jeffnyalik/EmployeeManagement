@@ -4,33 +4,22 @@
     ViewBag.Title = "Employee List";
     
 }
-
-    <div class="card-deck">
-        @if (Model.Count() < 0)
-        {
-           <p>The database is empty</p>
-        }
-        @foreach(var emp in Model)
+    <br /><br /><br />
+    <div class="row" style="margin-left: 60px; display:flex;">
+        @foreach (var emp in Model)
         {
             var PhotoPath = "~/images/" + (emp.PhotoPath ?? "noimage.png");
-            <div class="card-body">
-                <div class="card-header">
-                    <h5>@emp.Name</h5>
-                    <img src="@PhotoPath" class="card-img-top align-self-center"
-                         alt="Alternate Text" style="width:120px;height:120px;"
-                         asp-append-version="true"
-                         />
+                <div class="card m-3" style="margin-left:10px; min-width:18rem; max-width:30.5%;">
+                    <h5 class="card-title">@emp.Name</h5>
+                    <div class="card-header">
+                        <img class="card-img-top" src="@PhotoPath" alt="Card image cap" asp-append-version="true">
+                    </div>
+                    
+                    <div class="card-footer">
+                        <a class="btn btn-info btn-sm rounded-0" asp-action="details" asp-route-id="@emp.Id">View</a>
+                        <a class="btn btn-success btn-sm rounded-0">Edit</a>
+                        <a class="btn btn-danger btn-sm rounded-0">Remove</a>
+                    </div>
                 </div>
-                
-                <div class="card-footer text-center">
-                    <a asp-controller="home" asp-action="details"
-                       class="btn btn-info btn-sm rounded-0"
-                       asp-route-id="@emp.Id"
-                       >View
-                    </a>
-                    <a href="#" class="btn btn-primary btn-sm rounded-0">Edit</a>
-                    <a href="#" class="btn btn-danger btn-sm rounded-0">Delete</a>
-                </div>
-            </div>
         }
     </div>

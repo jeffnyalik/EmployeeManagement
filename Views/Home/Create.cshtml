@@ -2,7 +2,7 @@
 @{ 
     ViewBag.Title = "Create Employee";
 }
-
+    <br /><br />
     <div class="container container-fluid pt-sm-4">
         <div asp-validation-summary="All" class="text-danger"></div>
         <form asp-action="create" method="post" asp-controller="home" enctype="multipart/form-data">
@@ -32,7 +32,7 @@
             <div class="form-group row">
                 <div class="col-sm-6">
                     <div class="custom-file">
-                        <input asp-for="Photo" class="form-control custom-file-input" />
+                        <input asp-for="Photos" multiple class="form-control custom-file-input" />
                         <label class="custom-file-label">Choose File......</label>
                     </div>
                  </div>
@@ -47,8 +47,17 @@
                <script>
                    $(document).ready(function () {
                        $('.custom-file-input').on("change", function () {
-                           var fileName = $(this).val().split("\\").pop();
-                           $(this).next('.custom-file-label').html(fileName);
+                           //var fileName = $(this).val().split("\\").pop();
+                           //$(this).next('.custom-file-label').html(fileName);
+                           var fileLabel = $(this).next('.custom-file-label');
+                           var files = $(this)[0].files;
+                           if (files.length > 1) {
+                               fileLabel.html(files.length + 'Images Selected.');
+                           } else {
+                               if (files.length == 1) {
+                                   fileLabel.html(files[0].name)
+                               }
+                           }
                        });
                    })
                </script>
