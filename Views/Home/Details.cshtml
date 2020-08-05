@@ -1,0 +1,38 @@
+﻿@model HomeDetailsViewModel
+
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+    ViewBag.Title = "Details List";
+    var PhotoPath = "~/images/" + (Model.Employee.PhotoPath ?? "noimage.png");
+}
+
+    <div class="row justify-content-center m-3">
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3>@Model.Employee.Name</h3>
+                    <img src="@PhotoPath" class="card-img-top"
+                         alt="Alternate Text"
+                         style="width:250px;"
+                         asp-append-version="true"
+                         />
+                </div>
+                <div class="card-body text-center">
+                    <h5>Employee ID:            @Model.Employee.Id</h5>
+                    <h5>Employee Name:          @Model.Employee.Name</h5>
+                    <h5>Employee Email:         @Model.Employee.Email</h5>
+                    <h5>Employee Department:    @Model.Employee.Department</h5>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-action="index" asp-controller="home" class="btn btn-info btn-sm rounded-0">Back</a>
+                <a href="#" class="btn btn-primary btn-sm rounded-0">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm rounded-0">Delete</a>
+            </div>
+        </div>
+    </div>
+
+@section Scripts {
+
+    <script src="~/js/CustomScript.js"></script>
+}
