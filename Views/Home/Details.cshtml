@@ -5,9 +5,9 @@
     ViewBag.Title = "Details List";
     var PhotoPath = "~/images/" + (Model.Employee.PhotoPath ?? "noimage.png");
 }
-
+    <br /> <br />
     <div class="row justify-content-center m-3">
-        <div class="col-sm-8">
+        <div>
             <div class="card">
                 <div class="card-header">
                     <h3>@Model.Employee.Name</h3>
@@ -18,10 +18,12 @@
                          />
                 </div>
                 <div class="card-body text-center">
-                    <h5>Employee ID:            @Model.Employee.Id</h5>
-                    <h5>Employee Name:          @Model.Employee.Name</h5>
-                    <h5>Employee Email:         @Model.Employee.Email</h5>
-                    <h5>Employee Department:    @Model.Employee.Department</h5>
+                    <p>
+                        Employee Name:          @Model.Employee.Name
+                        Employee Email:         @Model.Employee.Email
+                        Employee Department:    @Model.Employee.Department
+                    </p>
+                    
                 </div>
             </div>
             <div class="card-footer text-center">

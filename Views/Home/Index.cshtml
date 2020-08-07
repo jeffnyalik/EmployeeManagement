@@ -1,25 +1,31 @@
 ﻿@model IEnumerable<Employee>
-@{ 
+@{
     Layout = "~/Views/Shared/_layout.cshtml";
     ViewBag.Title = "Employee List";
-    
+
 }
-    <br /><br /><br />
-    <div class="row" style="margin-left: 60px; display:flex;">
-        @foreach (var emp in Model)
-        {
-            var PhotoPath = "~/images/" + (emp.PhotoPath ?? "noimage.png");
-                <div class="card m-3" style="margin-left:10px; min-width:18rem; max-width:30.5%;">
-                    <h5 class="card-title">@emp.Name</h5>
-                    <div class="card-header">
-                        <img class="card-img-top" src="@PhotoPath" alt="Card image cap" asp-append-version="true">
-                    </div>
-                    
-                    <div class="card-footer">
-                        <a class="btn btn-info btn-sm rounded-0" asp-action="details" asp-route-id="@emp.Id">View</a>
-                        <a class="btn btn-success btn-sm rounded-0" asp-action="edit" asp-route-id="@emp.Id">Edit</a>
-                        <a class="btn btn-danger btn-sm rounded-0">Remove</a>
-                    </div>
-                </div>
-        }
-    </div>
+<br />
+<br />
+<br />
+<div class="row" style="margin-left: 60px; display:flex;">
+    @foreach (var emp in Model)
+    {
+        var PhotoPath = "~/images/" + (emp.PhotoPath ?? "noimage.png");
+        <div class="card m-3" style="margin-left:10px; min-width:18rem; max-width:30.5%;">
+            <h5 class="card-title">@emp.Name</h5>
+            <div class="card-header">
+                <img class="card-img-top" src="@PhotoPath" alt="Card image cap" asp-append-version="true">
+            </div>
+
+            <div class="card-footer">
+                <a class="btn btn-info btn-sm rounded-0" asp-action="details" asp-route-id="@emp.Id">View</a>
+                <a class="btn btn-success btn-sm rounded-0" asp-action="edit" asp-route-id="@emp.Id">Edit</a>
+                <a class="btn btn-danger btn-sm rounded-0 btnDelete"
+                   asp-action="delete"
+                   asp-controller="home"
+                   asp-route-id="@emp.Id" onclick="return confirm('Are you sure you want to delete?')" >Remove</a>
+            </div>
+        </div>
+    }
+
+</div>

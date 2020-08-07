@@ -41,11 +41,7 @@ namespace EmployeeManagement.Models
         public Employee GetEmployee(int id)
         {
             Employee employee = _context.Employees.Find(id);
-            if(employee != null) {
-                return employee;
-            }
-
-            throw new NotImplementedException();
+            return employee;
         }
 
         public Employee Update(Employee employee)
