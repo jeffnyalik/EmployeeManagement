@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -64,6 +65,7 @@ namespace EmployeeManagement
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("HOSTING ENVIRONMENT: " + env.EnvironmentName);
+                
                 
             });
         }
