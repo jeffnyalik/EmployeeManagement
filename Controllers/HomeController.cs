@@ -31,12 +31,17 @@ namespace EmployeeManagement.Controllers
             return View(model);
         }
         
-        public ViewResult Details(int id)
+        public ViewResult Details(int? id)
         {
-
+            Employee employee = _employeeRepository.GetEmployee(id.Value);
+            if(employee == null)
+            {
+                Response.StatusCode = 404;
+                return View("NotFoundCode", id.Value); //Status code Message view.
+            }
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
-                Employee = _employeeRepository.GetEmployee(id),
+                Employee = employee,
                 PageTitle = "Employee Details"
             };
 
@@ -109,7 +114,7 @@ namespace EmployeeManagement.Controllers
                     {  
 
                        string filePath = Path.Combine(_hostingEnvironment.WebRootPath, "images", model.ExistingPhotoPath);
-                        System.IO.File.Delete(filePath);
+                       System.IO.File.Delete(filePath);
                     }
                     employee.PhotoPath = ProcessUploadedFile(model); //Photo file name
                 }
