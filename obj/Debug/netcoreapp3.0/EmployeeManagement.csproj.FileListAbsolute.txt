@@ -131,3 +131,4 @@ C:\Users\JEFF\source\repos\EmployeeManagement\bin\Debug\netcoreapp3.0\Microsoft.
 C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\EmployeeManagement.csproj.CoreCompileInputs.cache
 C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\EmployeeManagement.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs

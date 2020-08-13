@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,7 +28,11 @@ namespace EmployeeManagement
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<EmployeeDbContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<EmployeeDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 3;
+            
+            }).AddEntityFrameworkStores<EmployeeDbContext>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddScoped<IEmployeeRepository, SqlEmployeeRepository>();
         }
