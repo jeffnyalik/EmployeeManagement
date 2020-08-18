@@ -21,7 +21,7 @@
                 <h5 class="card-title">@role.Name</h5>
             </div>
             <div class="card-footer">
-                <a href="#" class="btn btn-info btn-sm rounded-0">Edit</a>
+                <a asp-action="EditRole" asp-route-id="@role.Id" asp-controller="adminstration" class="btn btn-info btn-sm rounded-0">Edit</a>
                 <a href="#" class="btn btn-danger btn-sm rounded-0">Delete</a>
             </div>
         </div>
