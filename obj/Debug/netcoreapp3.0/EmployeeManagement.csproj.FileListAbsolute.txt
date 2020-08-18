@@ -132,3 +132,5 @@ C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\EmployeeMa
 C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\EmployeeManagement.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\Razor\Views\Adminstration\CreateRole.cshtml.g.cs
+C:\Users\JEFF\source\repos\EmployeeManagement\obj\Debug\netcoreapp3.0\Razor\Views\Adminstration\ListRoles.cshtml.g.cs
